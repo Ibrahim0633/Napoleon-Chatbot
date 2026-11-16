@@ -1,1 +1,93 @@
-Dialogue tree logic
+{
+  "character": "Napoleon Bonaparte",
+  "scenario": "waterloo",
+  "startNodeId": "waterloo_start",
+  "nodes": {
+    "waterloo_start": {
+      "message": "18 Haziran 1815 sabahı Waterloo yakınlarındayız. Yağmur zemini ağırlaştırdı; Wellington'un ordusu sırt hattında, Prusyalıların nerede olduğu ise belirsiz. Önce neyi öğrenmek istersin?",
+      "choices": [
+        { "text": "İngiliz hattını incelet", "nextNodeId": "allied_line" },
+        { "text": "Prusyalıların durumunu sor", "nextNodeId": "prussian_news" },
+        { "text": "Generallerimle planı konuş", "nextNodeId": "war_council" }
+      ]
+    },
+    "allied_line": {
+      "message": "Keşif raporuna göre Wellington'un birlikleri sırtın gerisinde savunma kurmuş. Toprağın kuruması için beklemek topçularımıza yardım edebilir, ama zaman Prusyalıların lehine işliyor.",
+      "choices": [
+        { "text": "Zemin kuruyana kadar bekle", "nextNodeId": "hold_ridge" },
+        { "text": "Merkeze baskı kur", "nextNodeId": "press_center" }
+      ]
+    },
+    "prussian_news": {
+      "message": "Doğudan Prusya birliklerinin yaklaştığı haberi geliyor. Haberlerin ayrıntısı kesin değil; Wellington'a karşı hızlı davranmak ile doğu kanadını güvenceye almak arasında seçim yapmalıyız.",
+      "choices": [
+        { "text": "Doğu kanadına birlik ayır", "nextNodeId": "guard_east" },
+        { "text": "Önce Wellington'a yüklen", "nextNodeId": "press_center" }
+      ]
+    },
+    "war_council": {
+      "message": "Kurmaylarım, piyade ve topçunun eşgüdümünü öneriyor. Süvariyi erken kullanmak düşman hattını sarsabilir, ama yedekleri tüketme riski taşır.",
+      "choices": [
+        { "text": "Piyade ve topçuyu eşgüdümlü kullan", "nextNodeId": "combined_attack" },
+        { "text": "Yedeği şimdilik koru", "nextNodeId": "hold_ridge" }
+      ]
+    },
+    "hold_ridge": {
+      "message": "Birlikler hattı koruyor. Bekleyiş düzeni sağlıyor, fakat doğudan gelen haberler daha kaygı verici hâle geliyor. Yedeği nereye ayırmalıyız?",
+      "choices": [
+        { "text": "Doğu yaklaşımını gözetle", "nextNodeId": "prussian_pressure" },
+        { "text": "Merkeze destek gönder", "nextNodeId": "final_push" }
+      ]
+    },
+    "press_center": {
+      "message": "Merkeze baskı başladı; Wellington'un hattı direniyor. Birliklerimizi düzenli tutmak için topçu ateşini mi yoğunlaştıralım, yoksa süvariyi mi kullanalım?",
+      "choices": [
+        { "text": "Topçu ateşini yoğunlaştır", "nextNodeId": "artillery_effort" },
+        { "text": "Süvari hücumuna izin ver", "nextNodeId": "cavalry_effort" }
+      ]
+    },
+    "guard_east": {
+      "message": "Doğu kanadına gönderilen birlikler yaklaşan Prusyalıları yavaşlatmaya çalışıyor. Bu, Wellington karşısındaki baskımızı azaltıyor. Kalan kuvvetlerle nasıl ilerleyelim?",
+      "choices": [
+        { "text": "Savunma hattını sağlamlaştır", "nextNodeId": "prussian_pressure" },
+        { "text": "Merkeze sınırlı bir saldırı yap", "nextNodeId": "artillery_effort" }
+      ]
+    },
+    "combined_attack": {
+      "message": "Piyade topçu ateşinin ardından ilerliyor. İlk hareket düzenli, ancak düşman hattı henüz kırılmadı. Yedeği saldırıya mı katalım, yoksa hattı mı koruyalım?",
+      "choices": [
+        { "text": "Yedeği saldırıya kat", "nextNodeId": "final_push" },
+        { "text": "Hattı koru ve doğuyu izle", "nextNodeId": "prussian_pressure" }
+      ]
+    },
+    "artillery_effort": {
+      "message": "Topçu ateşi sürüyor, fakat Wellington'un mevzileri sağlam. Doğudan Prusya baskısı da artıyor; daha ileri gitmek riskli.",
+      "choices": [
+        { "text": "Son bir saldırı düzenle", "nextNodeId": "final_push" },
+        { "text": "Birlikleri düzenli biçimde geri çek", "nextNodeId": "orderly_retreat" }
+      ]
+    },
+    "cavalry_effort": {
+      "message": "Süvari hücumu düşman hattını sarstı, ama destek gelmeden kalıcı bir sonuç alınamadı. Yedeklerimiz azalıyor.",
+      "choices": [
+        { "text": "Kalan yedeği de gönder", "nextNodeId": "final_push" },
+        { "text": "Süvariyi geri topla", "nextNodeId": "orderly_retreat" }
+      ]
+    },
+    "prussian_pressure": {
+      "message": "Prusya birlikleri doğu kanadında baskıyı artırıyor. Wellington'un hattı da hâlâ sağlam. Ordunun bütünlüğünü korumak için son karar zamanı.",
+      "choices": [
+        { "text": "Merkezde son bir saldırı dene", "nextNodeId": "final_push" },
+        { "text": "Geri çekilmeyi düzenle", "nextNodeId": "orderly_retreat" }
+      ]
+    },
+    "final_push": {
+      "message": "Son saldırı emri verildi. Birlikler cesurca ilerlese de Wellington'un hattı kırılmıyor; Prusya kuvvetlerinin gelişiyle ordumuz geri çekilmek zorunda kalıyor. Waterloo Muharebesi yenilgiyle sonuçlandı.",
+      "choices": []
+    },
+    "orderly_retreat": {
+      "message": "Geri çekilme emri verildi. Kayıplara rağmen birliklerin bir bölümü düzenini koruyarak meydandan ayrılıyor. Waterloo Muharebesi yenilgiyle sonuçlandı; şimdi ordunun kalanını toparlamalıyız.",
+      "choices": []
+    }
+  }
+}
