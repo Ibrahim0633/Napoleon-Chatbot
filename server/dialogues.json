@@ -2,6 +2,32 @@
   "character": "Napoleon Bonaparte",
   "scenario": "waterloo",
   "startNodeId": "waterloo_start",
+  "topics": [
+    {
+      "id": "waterloo",
+      "title": "The Battle of Waterloo",
+      "keywords": ["waterloo", "battle of waterloo"],
+      "nodeId": "waterloo_start"
+    },
+    {
+      "id": "wellington",
+      "title": "Wellington and the Allied Army",
+      "keywords": ["wellington", "british army", "allied army", "allied line"],
+      "nodeId": "allied_line"
+    },
+    {
+      "id": "prussians",
+      "title": "The Prussian Army",
+      "keywords": ["prussian", "prussia"],
+      "nodeId": "prussian_news"
+    },
+    {
+      "id": "battle-plans",
+      "title": "Battle Plans and Weapons",
+      "keywords": ["battle plan", "battle plans", "our plan", "your plan", "artillery", "cavalry", "infantry", "generals"],
+      "nodeId": "war_council"
+    }
+  ],
   "nodes": {
     "waterloo_start": {
       "message": "It is the morning of June 18, 1815, near Waterloo. The rain has left the ground muddy. Wellington's army is on the ridge, and we do not know where the Prussians are. What should we find out first?",
