@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f5f2" />
+    <title>Napoleon Chat</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <section class="chat-card" aria-label="Napoleon chatbot">
+        <header class="chat-header">
+          <div class="avatar" aria-hidden="true">N</div>
+          <div class="heading">
+            <h1>Napoleon Bonaparte</h1>
+            <p><span class="status-dot"></span> Waterloo, 1815</p>
+          </div>
+          <button class="reset-button" id="reset-chat" type="button">Start over</button>
+        </header>
+
+        <div class="conversation" id="conversation" role="log" aria-live="polite" aria-relevant="additions">
+          <p class="loading">Preparing the conversation…</p>
+        </div>
+
+        <div class="quick-replies" id="quick-replies" aria-label="Suggested replies"></div>
+
+        <form class="composer" id="chat-form">
+          <label class="visually-hidden" for="message-input">Write a message</label>
+          <input
+            id="message-input"
+            name="message"
+            type="text"
+            placeholder="Ask about Waterloo…"
+            autocomplete="off"
+            maxlength="500"
+            required
+          />
+          <button id="send-button" type="submit" aria-label="Send message">
+            <span>Send</span>
+            <span aria-hidden="true">↑</span>
+          </button>
+        </form>
+        <p class="hint">Try Waterloo, Wellington, the Prussians, or battle plans.</p>
+      </section>
+      <p class="page-note">A small historical conversation</p>
+    </main>
+  </body>
+</html>
