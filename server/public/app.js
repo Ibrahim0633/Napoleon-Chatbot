@@ -4,7 +4,8 @@ const chatForm = document.querySelector("#chat-form");
 const messageInput = document.querySelector("#message-input");
 const sendButton = document.querySelector("#send-button");
 const resetButton = document.querySelector("#reset-chat");
-const startNodeId = "waterloo_start";
+const startNodeId = "greeting";
+let currentNodeId = null;
 
 function addMessage(role, text) {
   const message = document.createElement("article");
@@ -66,6 +67,7 @@ async function continueAtNode(nodeId) {
   setBusy(true);
   try {
     const data = await requestDialogue({ nodeId });
+    currentNodeId = data.nodeId;
     addMessage("assistant", data.message);
     showChoices(data.choices);
   } catch (error) {
@@ -82,14 +84,21 @@ async function sendMessage(message) {
   setBusy(true);
 
   try {
-    const data = await requestDialogue({ message });
+    const data = await requestDialogue({ message, currentNodeId });
+
+    if (data.restart) {
+      conversation.replaceChildren();
+      quickReplies.replaceChildren();
+    }
+
+    currentNodeId = data.contextNodeId || data.nodeId || currentNodeId;
     addMessage("assistant", data.matched ? data.message : data.reply);
 
     if (data.matched) {
       showChoices(data.choices);
     } else {
       showChoices([
-        { text: "Start the Battle of Waterloo", nextNodeId: startNodeId }
+        { text: "Start the Battle of Waterloo", nextNodeId: "waterloo_start" }
       ]);
     }
   } catch (error) {
@@ -112,6 +121,7 @@ chatForm.addEventListener("submit", (event) => {
 resetButton.addEventListener("click", () => {
   conversation.replaceChildren();
   quickReplies.replaceChildren();
+  currentNodeId = null;
   continueAtNode(startNodeId);
 });
 

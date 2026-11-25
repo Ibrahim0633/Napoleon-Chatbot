@@ -1,12 +1,341 @@
 {
   "character": "Napoleon Bonaparte",
   "scenario": "waterloo",
-  "startNodeId": "waterloo_start",
+  "startNodeId": "greeting",
+  "restartKeywords": [
+    "can we restart the conversation",
+    "restart the conversation",
+    "restart this conversation",
+    "restart the whole conversation",
+    "restart our conversation",
+    "can we restart",
+    "restart the chat",
+    "restart this chat",
+    "restart the whole chat",
+    "restart chat",
+    "start over",
+    "start over please",
+    "can we start over",
+    "start from scratch",
+    "start fresh",
+    "start again",
+    "begin again",
+    "start a new conversation",
+    "begin a new conversation",
+    "new conversation",
+    "new chat",
+    "start a new chat",
+    "reset the chat",
+    "reset chat",
+    "reset the conversation",
+    "clear the chat",
+    "clear conversation",
+    "clear the whole conversation",
+    "let us restart",
+    "let us start over",
+    "let s start over",
+    "let s restart",
+    "start from the beginning"
+  ],
+  "evaluationContexts": {
+    "waterloo_start": "battle",
+    "waterloo_background": "battle",
+    "which_battle": "battle",
+    "battle_location": "battle",
+    "location_details": "battle",
+    "battle_date": "battle",
+    "battle_opponents": "battle",
+    "prussian_commander": "battle",
+    "reason_for_battle": "battle",
+    "battle_outcome": "battle",
+    "battle_aftermath": "battle",
+    "weather": "battle",
+    "weather_details": "battle",
+    "wellington_details": "battle",
+    "prussian_details": "battle",
+    "battle_plan_details": "battle",
+    "allied_line": "battle",
+    "prussian_news": "battle",
+    "war_council": "battle",
+    "hold_ridge": "battle",
+    "press_center": "battle",
+    "guard_east": "battle",
+    "combined_attack": "battle",
+    "artillery_effort": "battle",
+    "cavalry_effort": "battle",
+    "prussian_pressure": "battle",
+    "final_push": "battle",
+    "orderly_retreat": "battle",
+    "food_chat": "preferences",
+    "music_chat": "preferences",
+    "books_chat": "preferences",
+    "hobbies_chat": "preferences",
+    "travel_chat": "preferences",
+    "modern_entertainment": "preferences",
+    "sports_chat": "preferences",
+    "user_preferences": "preferences",
+    "user_preference_followup": "preferences",
+    "favorite_color": "preferences"
+  },
+  "evaluationResponses": {
+    "battle": {
+      "good": "battle_evaluation_good",
+      "bad": "battle_evaluation_bad"
+    },
+    "preferences": {
+      "good": "preference_evaluation",
+      "bad": "preference_evaluation"
+    },
+    "general": {
+      "good": "general_evaluation",
+      "bad": "general_evaluation"
+    }
+  },
   "topics": [
+    {
+      "id": "affirmative",
+      "title": "Yes and Agreement",
+      "keywords": ["yes", "yeah", "yep", "yup", "sure", "of course", "okay", "ok", "certainly", "absolutely", "sounds good", "sounds interesting", "sure thing", "yes please", "yes of course", "yeah sure", "i would like that", "i d like that"],
+      "nodeId": "affirmative_response"
+    },
+    {
+      "id": "negative",
+      "title": "No and Disagreement",
+      "keywords": ["no", "nope", "nah", "not really", "no thanks", "not now", "i don t think so"],
+      "nodeId": "negative_response"
+    },
+    {
+      "id": "uncertain",
+      "title": "Unsure or Maybe",
+      "keywords": ["maybe", "not sure", "i don t know", "i am not sure"],
+      "nodeId": "unsure_response"
+    },
+    {
+      "id": "wellbeing",
+      "title": "How Napoleon Is Doing",
+      "keywords": ["how are you", "how are you doing", "how are you feeling", "how have you been", "how are things", "how is your day", "how is it going", "what s up", "are you doing okay", "how do you feel", "are you well", "are you okay", "are you doing well"],
+      "nodeId": "wellbeing"
+    },
+    {
+      "id": "greetings",
+      "title": "Greetings",
+      "keywords": ["hello", "hello there", "hi", "hey", "hiya", "howdy", "good day", "good morning", "good afternoon", "good evening", "nice to meet you"],
+      "nodeId": "greeting"
+    },
+    {
+      "id": "identity",
+      "title": "Napoleon's Name and Story",
+      "keywords": ["who are you", "who is napoleon", "are you napoleon", "what is your name", "what s your name", "your name", "introduce yourself"],
+      "nodeId": "identity"
+    },
+    {
+      "id": "origin",
+      "title": "Napoleon's Home and Birthplace",
+      "keywords": ["where are you from", "where were you born", "what is your birthplace", "tell me about corsica"],
+      "nodeId": "origin_details"
+    },
+    {
+      "id": "age",
+      "title": "Napoleon's Age",
+      "keywords": ["how old are you", "what is your age", "when were you born"],
+      "nodeId": "age_details"
+    },
+    {
+      "id": "family",
+      "title": "Napoleon's Family",
+      "keywords": ["do you have a family", "do you have children", "who is your wife", "tell me about your family"],
+      "nodeId": "family_details"
+    },
+    {
+      "id": "career",
+      "title": "Napoleon's Career",
+      "keywords": ["what is your job", "what do you do", "how did you become emperor", "tell me about your career"],
+      "nodeId": "career_details"
+    },
+    {
+      "id": "user-feeling",
+      "title": "How the User Feels",
+      "keywords": ["i feel sad", "i am sad", "i feel down", "i am down", "i feel upset", "i am upset", "i feel bad", "i am feeling sad", "i am feeling bad", "i feel tired", "i am tired", "i feel stressed", "i am stressed", "i feel overwhelmed", "i am overwhelmed", "i feel lonely", "i am lonely", "i feel worried", "i am worried", "i feel nervous", "i am having a hard time", "i had a hard day", "today was hard", "it was a hard day", "not feeling well", "i am not okay"],
+      "nodeId": "user_feeling"
+    },
+    {
+      "id": "user-day",
+      "title": "The User's Day",
+      "keywords": ["how was your day", "my day was good", "my day was bad", "i had a good day", "i had a bad day", "my day was busy", "i had a hard day", "today was hard", "it was a long day", "today was busy"],
+      "nodeId": "user_day"
+    },
+    {
+      "id": "daily-life",
+      "title": "Napoleon's Day and Plans",
+      "keywords": ["what are you doing", "what are you doing today", "what are you up to", "how is your day going", "what is your day like", "what s happening"],
+      "nodeId": "daily_life"
+    },
+    {
+      "id": "positive-mood",
+      "title": "Good News and Happy Feelings",
+      "keywords": ["i am happy", "i m happy", "i feel happy", "i am excited", "i feel excited", "i am cheerful", "i feel cheerful", "i am great", "i feel great", "i have good news"],
+      "nodeId": "positive_mood"
+    },
+    {
+      "id": "boredom",
+      "title": "Boredom and Things to Do",
+      "keywords": ["i am bored", "i m bored", "i feel bored", "i have nothing to do"],
+      "nodeId": "boredom"
+    },
+    {
+      "id": "food",
+      "title": "Food and Meals",
+      "keywords": ["food", "meal", "favorite food", "favourite food", "mexican food", "what do you like to eat", "what do you want to eat", "what would you like to eat", "what do you eat", "what should i eat", "are you hungry", "do you like pizza", "pizza", "tacos", "sushi", "pasta", "curry", "burger", "chocolate"],
+      "nodeId": "food_chat"
+    },
+    {
+      "id": "user-preferences",
+      "title": "The User's Likes and Favorites",
+      "keywords": ["i like", "i love", "i enjoy", "i prefer", "my favorite is", "my favourite is"],
+      "nodeId": "user_preferences"
+    },
+    {
+      "id": "favorite-color",
+      "title": "Favorite Colors",
+      "keywords": ["favorite color", "favourite color", "what is your favorite color", "what is your favourite color"],
+      "nodeId": "favorite_color"
+    },
+    {
+      "id": "music",
+      "title": "Music",
+      "keywords": ["music", "song", "favorite song", "favourite song", "what music do you like", "do you like music", "jazz", "rock music", "pop music", "classical music", "opera"],
+      "nodeId": "music_chat"
+    },
+    {
+      "id": "books",
+      "title": "Books and Reading",
+      "keywords": ["book", "books", "reading", "novel", "novels", "fiction", "what do you read", "favorite book", "favourite book"],
+      "nodeId": "books_chat"
+    },
+    {
+      "id": "hobbies",
+      "title": "Hobbies and Free Time",
+      "keywords": ["hobby", "hobbies", "free time", "what do you do for fun", "what are your interests", "what do you like doing"],
+      "nodeId": "hobbies_chat"
+    },
+    {
+      "id": "travel",
+      "title": "Travel and Favorite Places",
+      "keywords": ["travel", "favorite place", "favourite place", "where would you like to go", "where do you like to travel", "what place do you like", "paris", "london", "rome", "corsica"],
+      "nodeId": "travel_chat"
+    },
+    {
+      "id": "movies-games",
+      "title": "Movies and Games",
+      "keywords": ["movie", "movies", "film", "films", "video game", "video games", "television", "tv shows"],
+      "nodeId": "modern_entertainment"
+    },
+    {
+      "id": "sports",
+      "title": "Sports and Games",
+      "keywords": ["sport", "sports", "football", "soccer", "tennis", "do you like sports"],
+      "nodeId": "sports_chat"
+    },
+    {
+      "id": "joke",
+      "title": "Jokes and Fun",
+      "keywords": ["tell me a joke", "joke", "make me laugh", "say something funny"],
+      "nodeId": "joke_chat"
+    },
+    {
+      "id": "story",
+      "title": "Short Stories",
+      "keywords": ["tell me a story", "short story", "tell a story", "story please"],
+      "nodeId": "story_chat"
+    },
+    {
+      "id": "advice",
+      "title": "Suggestions and Encouragement",
+      "keywords": ["give me advice", "i need advice", "can you help me decide", "can you help me", "what should i do", "what should i do today", "what can i do", "motivate me", "encourage me", "i need help"],
+      "nodeId": "advice_chat"
+    },
+    {
+      "id": "apology",
+      "title": "Apologies",
+      "keywords": ["sorry", "i am sorry", "my apologies", "please forgive me"],
+      "nodeId": "apology_chat"
+    },
+    {
+      "id": "user-wellbeing",
+      "title": "How the User Is Doing",
+      "keywords": ["i am fine", "i m fine", "i am good", "i m good", "i am okay", "i m okay", "i feel okay", "i feel good", "i am great", "i m great", "doing well", "not bad"],
+      "nodeId": "user_wellbeing"
+    },
+    {
+      "id": "thanks",
+      "title": "Thanks",
+      "keywords": ["thank you", "thank you very much", "thanks", "thanks a lot", "many thanks", "i appreciate it", "cheers"],
+      "nodeId": "thanks"
+    },
+    {
+      "id": "weather",
+      "title": "The Weather at Waterloo",
+      "keywords": ["weather", "how is the weather", "what is the weather like", "is the weather good", "is it raining", "rain", "raining", "sunny", "is it cold"],
+      "nodeId": "weather"
+    },
+    {
+      "id": "farewell",
+      "title": "Goodbye",
+      "keywords": ["goodbye", "bye", "see you", "see you later", "talk to you later", "farewell", "good night", "have a good day"],
+      "nodeId": "farewell"
+    },
+    {
+      "id": "help",
+      "title": "Available Topics",
+      "keywords": ["what can we talk about", "what topics can we discuss", "what topics do you know", "what can i ask", "what can you tell me", "what do you know", "help", "topics"],
+      "nodeId": "topics_help"
+    },
+    {
+      "id": "which-battle",
+      "title": "Which Battle",
+      "keywords": ["which battle", "which battle are you planning", "what battle", "what battle are you planning", "what battle is this", "what is this battle", "which war", "what war", "what is this war"],
+      "nodeId": "which_battle"
+    },
+    {
+      "id": "battle-location",
+      "title": "Where the Battle Is",
+      "keywords": ["where is waterloo", "where are you", "where are we", "where are we fighting", "where is the battle", "where did the battle happen", "where was the battle fought", "what country is waterloo in", "how far is waterloo", "how far from brussels"],
+      "nodeId": "battle_location"
+    },
+    {
+      "id": "battle-date",
+      "title": "When the Battle Is",
+      "keywords": ["when is the battle", "when is it", "when does it start", "when did the battle happen", "when did it happen", "when was waterloo", "what day is it", "what day is the battle", "what date is it", "what year is it", "what year was waterloo"],
+      "nodeId": "battle_date"
+    },
+    {
+      "id": "battle-opponents",
+      "title": "Who Napoleon Is Fighting",
+      "keywords": ["who are you fighting", "who else are you fighting", "who is fighting you", "who is the enemy", "who is your enemy", "who am i fighting", "who leads the allied army", "who leads the british", "who is on your side"],
+      "nodeId": "battle_opponents"
+    },
+    {
+      "id": "prussian-commander",
+      "title": "The Prussian Commander",
+      "keywords": ["who leads the prussians", "who commands the prussians", "who is blucher", "blucher"],
+      "nodeId": "prussian_commander"
+    },
+    {
+      "id": "reason-for-battle",
+      "title": "Why the Battle Is Happening",
+      "keywords": ["why are you fighting", "why are we fighting", "why this battle", "why are you at waterloo", "why are the allies fighting you", "why did they attack", "what are you fighting for"],
+      "nodeId": "reason_for_battle"
+    },
+    {
+      "id": "battle-outcome",
+      "title": "The Battle's Outcome",
+      "keywords": ["what happened at waterloo", "what happened with the war", "how did the battle end", "what was the result", "who won", "did you win", "did you lose", "what happened"],
+      "nodeId": "battle_outcome"
+    },
     {
       "id": "waterloo",
       "title": "The Battle of Waterloo",
-      "keywords": ["waterloo", "battle of waterloo"],
+      "keywords": ["waterloo", "battle of waterloo", "battle", "war", "fight", "fighting", "battlefield", "going to war"],
       "nodeId": "waterloo_start"
     },
     {
@@ -28,7 +357,756 @@
       "nodeId": "war_council"
     }
   ],
+  "followUps": {
+    "wellbeing": {
+      "yes": "which_battle",
+      "yes please": "which_battle",
+      "yes of course": "which_battle",
+      "yes please tell me": "which_battle",
+      "yes tell me": "which_battle",
+      "yes tell me more": "which_battle",
+      "please": "which_battle",
+      "yeah": "which_battle",
+      "yeah sure": "which_battle",
+      "yep": "which_battle",
+      "sure": "which_battle",
+      "sure thing": "which_battle",
+      "of course": "which_battle",
+      "absolutely": "which_battle",
+      "sounds good": "which_battle",
+      "sounds interesting": "which_battle",
+      "tell me": "which_battle",
+      "tell me more": "which_battle",
+      "i would like that": "which_battle",
+      "i d like that": "which_battle",
+      "maybe": "unsure_response",
+      "okay": "which_battle",
+      "ok": "which_battle",
+      "which one": "which_battle",
+      "no": "decline_battle_details",
+      "nope": "decline_battle_details",
+      "nah": "decline_battle_details",
+      "no thanks": "decline_battle_details",
+      "not now": "decline_battle_details",
+      "i don t think so": "decline_battle_details",
+      "not really": "decline_battle_details",
+      "where": "battle_location",
+      "who": "battle_opponents",
+      "why": "reason_for_battle",
+      "plan": "battle_plan_details",
+      "tell me more": "which_battle"
+    },
+    "which_battle": {
+      "where": "battle_location",
+      "where is it": "battle_location",
+      "who": "battle_opponents",
+      "when": "battle_date",
+      "when is it": "battle_date",
+      "why": "reason_for_battle",
+      "more": "waterloo_background",
+      "what": "waterloo_background"
+    },
+    "battle_opponents": {
+      "why": "reason_for_battle",
+      "what happened": "battle_outcome",
+      "what is your plan": "war_council",
+      "where": "battle_location",
+      "when": "battle_date",
+      "more": "waterloo_background"
+    },
+    "location_details": {
+      "which battle": "which_battle", "who": "battle_opponents", "when": "battle_date", "weather": "weather_details", "more": "waterloo_background"
+    },
+    "affirmative_response": {
+      "tell me more": "waterloo_background", "where": "battle_location", "who": "battle_opponents", "when": "battle_date", "why": "reason_for_battle", "no": "negative_response"
+    },
+    "negative_response": {
+      "weather": "weather_details", "waterloo": "waterloo_background", "who are you": "identity", "more": "topics_help", "yes": "topics_help"
+    },
+    "decline_battle_details": {
+      "weather": "weather_details", "waterloo": "waterloo_background", "more": "topics_help", "yes": "topics_help", "no": "farewell"
+    },
+    "unsure_response": {
+      "waterloo": "waterloo_background", "who": "battle_opponents", "where": "battle_location", "when": "battle_date", "more": "topics_help"
+    },
+    "greeting": {
+      "hello": "greeting_response", "hi": "greeting_response", "hey": "greeting_response", "how are you": "wellbeing", "who are you": "identity", "war": "waterloo_start", "what can we talk about": "topics_help", "tell me more": "topics_help"
+    },
+    "greeting_response": {
+      "how are you": "wellbeing", "what can we talk about": "topics_help", "waterloo": "waterloo_start", "more": "topics_help"
+    },
+    "battle_location": {
+      "which battle": "which_battle", "when": "battle_date", "who": "battle_opponents", "weather": "weather_details", "how far": "location_details", "more": "location_details"
+    },
+    "battle_date": {
+      "which battle": "which_battle", "where": "battle_location", "who": "battle_opponents", "why": "reason_for_battle", "what happened": "battle_aftermath", "more": "waterloo_background"
+    },
+    "prussian_commander": {
+      "who else": "battle_opponents", "where": "prussian_news", "why": "prussian_details", "what is your plan": "battle_plan_details", "more": "prussian_details"
+    },
+    "reason_for_battle": {
+      "which battle": "which_battle", "who": "battle_opponents", "what happened": "battle_aftermath", "where": "battle_location", "more": "waterloo_background"
+    },
+    "battle_outcome": {
+      "why": "battle_aftermath", "where": "battle_location", "who": "battle_opponents", "what now": "battle_aftermath", "tell me more": "battle_aftermath"
+    },
+    "user_wellbeing": {
+      "how are you": "wellbeing", "waterloo": "waterloo_background", "weather": "weather_details", "goodbye": "farewell", "tell me more": "topics_help"
+    },
+    "identity": {
+      "where were you born": "origin_details", "how old are you": "age_details", "family": "family_details", "what was your job": "career_details", "more": "career_details"
+    },
+    "thanks": {
+      "you are welcome": "topics_help", "waterloo": "waterloo_background", "weather": "weather_details", "goodbye": "farewell", "more": "topics_help"
+    },
+    "weather": {
+      "why": "weather_details", "more": "weather_details", "tell me more": "weather_details", "waterloo": "waterloo_start", "who": "battle_opponents"
+    },
+    "farewell": {
+      "wait": "greeting", "one more thing": "topics_help", "start again": "greeting", "waterloo": "waterloo_start"
+    },
+    "topics_help": {
+      "waterloo": "waterloo_start", "wellington": "wellington_details", "prussians": "prussian_details", "weather": "weather_details", "day": "daily_life", "food": "food_chat", "music": "music_chat", "books": "books_chat", "hobbies": "hobbies_chat", "travel": "travel_chat", "sports": "sports_chat", "joke": "joke_chat", "story": "story_chat", "advice": "advice_chat", "more": "user_preferences"
+    },
+    "waterloo_start": {
+      "where": "battle_location", "when": "battle_date", "who": "battle_opponents", "why": "reason_for_battle", "weather": "weather_details", "plan": "battle_plan_details", "more": "waterloo_background", "tell me more": "waterloo_background"
+    },
+    "allied_line": {
+      "who is wellington": "wellington_details", "why": "weather_details", "what next": "hold_ridge", "attack": "press_center", "more": "wellington_details", "tell me more": "wellington_details"
+    },
+    "prussian_news": {
+      "who": "prussian_commander", "who is blucher": "prussian_commander", "where": "prussian_details", "what is your plan": "battle_plan_details", "more": "prussian_details", "tell me more": "prussian_details"
+    },
+    "war_council": {
+      "why": "battle_plan_details", "what next": "combined_attack", "artillery": "battle_plan_details", "cavalry": "cavalry_effort", "more": "battle_plan_details", "tell me more": "battle_plan_details"
+    },
+    "hold_ridge": {
+      "where": "prussian_news", "what next": "prussian_pressure", "attack": "press_center", "why": "weather_details", "more": "waterloo_background"
+    },
+    "press_center": {
+      "artillery": "artillery_effort", "cavalry": "cavalry_effort", "what next": "combined_attack", "more": "battle_plan_details"
+    },
+    "guard_east": {
+      "who": "prussian_commander", "why": "prussian_details", "what next": "prussian_pressure", "attack": "press_center", "more": "prussian_details"
+    },
+    "combined_attack": {
+      "why": "battle_plan_details", "what next": "final_push", "reserve": "hold_ridge", "prussians": "prussian_pressure", "more": "battle_plan_details"
+    },
+    "artillery_effort": {
+      "why": "battle_plan_details", "what next": "final_push", "retreat": "orderly_retreat", "more": "battle_plan_details"
+    },
+    "cavalry_effort": {
+      "why": "battle_plan_details", "what next": "orderly_retreat", "retreat": "orderly_retreat", "more": "battle_plan_details"
+    },
+    "prussian_pressure": {
+      "who": "prussian_commander", "where": "prussian_news", "what next": "final_push", "retreat": "orderly_retreat", "more": "prussian_details"
+    },
+    "final_push": {
+      "what happened": "battle_outcome", "why": "battle_aftermath", "what now": "battle_aftermath", "tell me more": "battle_aftermath", "restart": "greeting"
+    },
+    "orderly_retreat": {
+      "what happened": "battle_outcome", "what now": "battle_aftermath", "where": "battle_location", "tell me more": "battle_aftermath", "restart": "greeting"
+    },
+    "waterloo_background": {
+      "who": "battle_opponents", "where": "battle_location", "when": "battle_date", "what is your plan": "battle_plan_details", "more": "battle_opponents"
+    },
+    "wellington_details": {
+      "who": "battle_opponents", "what is your plan": "battle_plan_details", "why": "reason_for_battle", "what happened": "battle_aftermath", "more": "allied_line"
+    },
+    "prussian_details": {
+      "who": "prussian_commander", "where": "prussian_news", "why": "prussian_pressure", "what is your plan": "battle_plan_details", "more": "prussian_commander"
+    },
+    "battle_plan_details": {
+      "why": "war_council", "what next": "combined_attack", "artillery": "artillery_effort", "cavalry": "cavalry_effort", "more": "war_council"
+    },
+    "weather_details": {
+      "how does that affect the battle": "allied_line", "what is your plan": "battle_plan_details", "where": "battle_location", "more": "weather"
+    },
+    "origin_details": {
+      "how old are you": "age_details", "what was your job": "career_details", "family": "family_details", "more": "career_details"
+    },
+    "age_details": {
+      "where were you born": "origin_details", "what was your job": "career_details", "family": "family_details", "how are you": "wellbeing", "more": "identity"
+    },
+    "family_details": {
+      "where were you born": "origin_details", "what was your job": "career_details", "what is happening": "waterloo_start", "more": "identity"
+    },
+    "career_details": {
+      "where were you born": "origin_details", "family": "family_details", "why are you at waterloo": "reason_for_battle", "more": "identity"
+    },
+    "user_feeling": {
+      "weather": "weather_details", "tell me about your life": "identity", "waterloo": "waterloo_background", "yes": "topics_help", "no": "farewell", "advice": "advice_chat", "more": "advice_chat"
+    },
+    "battle_aftermath": {
+      "why did you lose": "battle_outcome", "who": "battle_opponents", "what happened": "battle_outcome", "restart": "greeting", "more": "battle_outcome"
+    },
+    "battle_evaluation_good": {
+      "why": "weather_details", "what is the plan": "battle_plan_details", "what next": "waterloo_start", "more": "weather_details"
+    },
+    "battle_evaluation_bad": {
+      "why": "weather_details", "what can we do": "battle_plan_details", "what is the plan": "battle_plan_details", "more": "battle_plan_details"
+    },
+    "preference_evaluation": {
+      "food": "food_chat", "music": "music_chat", "hobbies": "hobbies_chat", "what do you like": "user_preferences", "more": "user_preferences"
+    },
+    "general_evaluation": {
+      "waterloo": "waterloo_start", "food": "food_chat", "music": "music_chat", "topics": "topics_help", "more": "topics_help"
+    },
+    "user_preferences": {
+      "food": "food_chat", "music": "music_chat", "books": "books_chat", "hobbies": "hobbies_chat", "travel": "travel_chat", "favorite color": "favorite_color", "more": "hobbies_chat"
+    },
+    "user_preference_followup": {
+      "food": "food_chat", "music": "music_chat", "books": "books_chat", "hobbies": "hobbies_chat", "more": "topics_help"
+    },
+    "napoleon_wants": {
+      "goals": "napoleon_goals", "what are your goals": "napoleon_goals", "waterloo": "waterloo_start", "day": "daily_life", "more": "napoleon_goals"
+    },
+    "napoleon_goals": {
+      "who": "battle_opponents", "what is your plan": "battle_plan_details", "waterloo": "waterloo_background", "more": "battle_plan_details"
+    },
+    "favorite_color": {
+      "what color do you like": "user_preferences", "uniforms": "battle_plan_details", "weather": "weather_details", "more": "user_preferences"
+    },
+    "user_day": {
+      "my day was difficult": "user_feeling", "joke": "joke_chat", "how was your day": "daily_life", "more": "daily_life"
+    },
+    "daily_life": {
+      "how are you": "wellbeing", "battle": "waterloo_start", "busy": "user_day", "good": "user_day", "hard": "user_feeling", "tiring": "user_feeling", "my day was busy": "user_day", "more": "user_day"
+    },
+    "positive_mood": {
+      "what made you happy": "user_day", "hobbies": "hobbies_chat", "joke": "joke_chat", "more": "user_preferences"
+    },
+    "boredom": {
+      "joke": "joke_chat", "story": "story_chat", "hobbies": "hobbies_chat", "more": "topics_help"
+    },
+    "food_chat": {
+      "mexican": "user_preferences", "mexican food": "user_preferences", "chinese food": "user_preferences", "pizza": "user_preferences", "tacos": "user_preferences", "sushi": "user_preferences", "pasta": "user_preferences", "curry": "user_preferences", "burger": "user_preferences", "chocolate": "user_preferences", "music": "music_chat", "more": "user_preferences"
+    },
+    "music_chat": {
+      "jazz": "user_preferences", "rock": "user_preferences", "pop": "user_preferences", "opera": "user_preferences", "classical": "user_preferences", "books": "books_chat", "hobbies": "hobbies_chat", "story": "story_chat", "what music do you like": "user_preferences", "more": "user_preferences"
+    },
+    "books_chat": {
+      "history": "career_details", "novels": "user_preferences", "fiction": "user_preferences", "hobbies": "hobbies_chat", "story": "story_chat", "more": "career_details"
+    },
+    "hobbies_chat": {
+      "reading": "books_chat", "cooking": "user_preferences", "walking": "user_preferences", "hiking": "user_preferences", "riding": "user_preferences", "sports": "sports_chat", "books": "books_chat", "travel": "travel_chat", "music": "music_chat", "what do you like doing": "user_preferences", "more": "user_preferences"
+    },
+    "travel_chat": {
+      "paris": "user_preferences", "london": "user_preferences", "rome": "user_preferences", "corsica": "origin_details", "italy": "user_preferences", "egypt": "user_preferences", "where were you born": "origin_details", "life": "identity", "waterloo": "waterloo_background", "favorite place": "user_preferences", "more": "origin_details"
+    },
+    "modern_entertainment": {
+      "books": "books_chat", "music": "music_chat", "story": "story_chat", "more": "topics_help"
+    },
+    "sports_chat": {
+      "football": "user_preferences", "soccer": "user_preferences", "tennis": "user_preferences", "basketball": "user_preferences", "hobbies": "hobbies_chat", "army": "battle_plan_details", "weather": "weather_details", "more": "hobbies_chat"
+    },
+    "joke_chat": {
+      "another joke": "joke_chat_2", "story": "story_chat", "topics": "topics_help", "more": "story_chat"
+    },
+    "story_chat": {
+      "another story": "story_chat_2", "joke": "joke_chat", "day": "daily_life", "more": "story_chat_2"
+    },
+    "joke_chat_2": {
+      "another joke": "joke_chat", "story": "story_chat", "topics": "topics_help", "more": "joke_chat"
+    },
+    "story_chat_2": {
+      "another story": "story_chat", "joke": "joke_chat", "travel": "travel_chat", "more": "story_chat"
+    },
+    "advice_chat": {
+      "worried": "user_feeling", "bored": "boredom", "topics": "topics_help", "more": "user_feeling"
+    },
+    "apology_chat": {
+      "waterloo": "waterloo_start", "joke": "joke_chat", "topics": "topics_help", "more": "topics_help"
+    },
+    "fallback_waterloo_offer": {
+      "yes": "waterloo_start",
+      "yes please": "waterloo_start",
+      "yes of course": "waterloo_start",
+      "yes please tell me": "waterloo_start",
+      "yes tell me": "waterloo_start",
+      "please": "waterloo_start",
+      "yeah": "waterloo_start",
+      "yeah sure": "waterloo_start",
+      "yep": "waterloo_start",
+      "sure": "waterloo_start",
+      "sure thing": "waterloo_start",
+      "of course": "waterloo_start",
+      "absolutely": "waterloo_start",
+      "sounds good": "waterloo_start",
+      "sounds interesting": "waterloo_start",
+      "i would like that": "waterloo_start",
+      "tell me": "waterloo_start",
+      "okay": "waterloo_start",
+      "ok": "waterloo_start",
+      "no": "decline_battle_details",
+      "no thanks": "decline_battle_details",
+      "not now": "decline_battle_details",
+      "not really": "decline_battle_details"
+    }
+  },
   "nodes": {
+    "greeting_response": {
+      "message": "Hello again! I hope you are well. What would you like to chat about today?",
+      "choices": [
+        { "text": "How are you?", "nextNodeId": "wellbeing" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "user_preferences": {
+      "message": "That sounds interesting. I would like to hear more about what you enjoy. What do you like most about it?",
+      "choices": [
+        { "text": "Tell me about food", "nextNodeId": "food_chat" },
+        { "text": "Tell me about music", "nextNodeId": "music_chat" },
+        { "text": "Tell me about hobbies", "nextNodeId": "hobbies_chat" }
+      ]
+    },
+    "user_preference_followup": {
+      "message": "I see. It is good to have something you enjoy. What else do you like?",
+      "choices": [
+        { "text": "Tell me about food", "nextNodeId": "food_chat" },
+        { "text": "Tell me about music", "nextNodeId": "music_chat" },
+        { "text": "Tell me about hobbies", "nextNodeId": "hobbies_chat" }
+      ]
+    },
+    "napoleon_wants": {
+      "message": "I would like to have a good conversation with you. Here at Waterloo, I want to protect my army and win the battle. What would you like to talk about?",
+      "choices": [
+        { "text": "What are your goals?", "nextNodeId": "napoleon_goals" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" }
+      ]
+    },
+    "napoleon_goals": {
+      "message": "My immediate goal is to keep my army together and defeat Wellington before the Prussians arrive. I also want France to remain strong.",
+      "choices": [
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_background" }
+      ]
+    },
+    "favorite_color": {
+      "message": "I have no single favorite color. I do admire the deep blue of a clear evening sky. What color do you like?",
+      "choices": [
+        { "text": "Tell me about your favorite things", "nextNodeId": "user_preferences" },
+        { "text": "Tell me about uniforms", "nextNodeId": "battle_plan_details" },
+        { "text": "Tell me about the weather", "nextNodeId": "weather" }
+      ]
+    },
+    "user_day": {
+      "message": "I hope your day had a few good moments. If it was hard, I am sorry. Would a joke, a short story, or a quiet chat help?",
+      "choices": [
+        { "text": "My day was difficult", "nextNodeId": "user_feeling" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" }
+      ]
+    },
+    "daily_life": {
+      "message": "My day is full of reports, maps, and decisions. Today, my attention is on the army and the battle near Waterloo. How has your day been?",
+      "choices": [
+        { "text": "How are you?", "nextNodeId": "wellbeing" },
+        { "text": "Tell me about the battle", "nextNodeId": "waterloo_start" },
+        { "text": "My day was busy", "nextNodeId": "user_day" }
+      ]
+    },
+    "positive_mood": {
+      "message": "I am glad to hear that! A good mood can make even a hard day feel lighter. What has made you happy?",
+      "choices": [
+        { "text": "Tell me about your hobbies", "nextNodeId": "hobbies_chat" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" }
+      ]
+    },
+    "boredom": {
+      "message": "A quiet moment can feel long. We could try a joke, a short story, or talk about something you enjoy.",
+      "choices": [
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me a short story", "nextNodeId": "story_chat" },
+        { "text": "Tell me about your hobbies", "nextNodeId": "hobbies_chat" }
+      ]
+    },
+    "food_chat": {
+      "message": "I know little about food from distant lands, such as Mexican food. In France, I enjoy a good meal shared with others. What food do you like?",
+      "choices": [
+        { "text": "Tell me about music", "nextNodeId": "music_chat" },
+        { "text": "Tell me about travel", "nextNodeId": "travel_chat" },
+        { "text": "Tell me about the weather", "nextNodeId": "weather" }
+      ]
+    },
+    "music_chat": {
+      "message": "I enjoy music at ceremonies and the sound of a military band. Music can lift the spirits. What kind of music do you enjoy?",
+      "choices": [
+        { "text": "Tell me about books", "nextNodeId": "books_chat" },
+        { "text": "Tell me about your hobbies", "nextNodeId": "hobbies_chat" },
+        { "text": "Tell me a story", "nextNodeId": "story_chat" }
+      ]
+    },
+    "books_chat": {
+      "message": "I enjoy reading, especially history and military reports. A good book can give a person new ideas.",
+      "choices": [
+        { "text": "Tell me about your career", "nextNodeId": "career_details" },
+        { "text": "Tell me about your hobbies", "nextNodeId": "hobbies_chat" },
+        { "text": "Tell me a short story", "nextNodeId": "story_chat" }
+      ]
+    },
+    "hobbies_chat": {
+      "message": "In my free time, I enjoy reading, riding, and thinking through plans. I rarely sit still for long. What do you like doing?",
+      "choices": [
+        { "text": "Tell me about books", "nextNodeId": "books_chat" },
+        { "text": "Tell me about travel", "nextNodeId": "travel_chat" },
+        { "text": "Tell me about music", "nextNodeId": "music_chat" }
+      ]
+    },
+    "travel_chat": {
+      "message": "Corsica feels like home to me, and Paris is an important city in my life. I have also travelled through Italy and Egypt. Which places do you like?",
+      "choices": [
+        { "text": "Where were you born?", "nextNodeId": "origin_details" },
+        { "text": "Tell me about your life", "nextNodeId": "identity" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "modern_entertainment": {
+      "message": "Films and video games are unknown to me; they belong to a future beyond my time. I do know books, music, and the theatre.",
+      "choices": [
+        { "text": "Tell me about books", "nextNodeId": "books_chat" },
+        { "text": "Tell me about music", "nextNodeId": "music_chat" },
+        { "text": "Tell me a story", "nextNodeId": "story_chat" }
+      ]
+    },
+    "sports_chat": {
+      "message": "I know riding and military exercises. Modern sports like football are unfamiliar to me. What sport do you enjoy?",
+      "choices": [
+        { "text": "Tell me about your hobbies", "nextNodeId": "hobbies_chat" },
+        { "text": "Tell me about your army", "nextNodeId": "battle_plan_details" },
+        { "text": "Tell me about the weather", "nextNodeId": "weather" }
+      ]
+    },
+    "joke_chat": {
+      "message": "Why did the general carry a pencil? To draw up a plan! I hope that brought a smile to your face.",
+      "choices": [
+        { "text": "Tell me another joke", "nextNodeId": "joke_chat_2" },
+        { "text": "Tell me a short story", "nextNodeId": "story_chat" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "story_chat": {
+      "message": "Here is a short story. A young officer faced a difficult choice. He paused, studied the map, and asked his friends for advice. Together, they found a better path.",
+      "choices": [
+        { "text": "Tell me another story", "nextNodeId": "story_chat_2" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" }
+      ]
+    },
+    "joke_chat_2": {
+      "message": "Here is another one: Why did the soldier bring a ladder? He wanted to rise through the ranks!",
+      "choices": [
+        { "text": "Tell me another joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me a short story", "nextNodeId": "story_chat" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "story_chat_2": {
+      "message": "Here is another short story. A traveller lost his way in a storm. A farmer shared a lamp and showed him the road. By morning, both had made a new friend.",
+      "choices": [
+        { "text": "Tell me another story", "nextNodeId": "story_chat" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me about travel", "nextNodeId": "travel_chat" }
+      ]
+    },
+    "battle_evaluation_good": {
+      "message": "Not really. The ground is wet and muddy, which may slow our guns. We could wait for it to dry, but that would give the Prussians more time to arrive.",
+      "choices": [
+        { "text": "Tell me more about the weather", "nextNodeId": "weather_details" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" }
+      ]
+    },
+    "battle_evaluation_bad": {
+      "message": "Yes, it is a problem for us. The wet ground may slow our artillery and troops. We can wait for the ground to dry or attack now.",
+      "choices": [
+        { "text": "Why is the weather a problem?", "nextNodeId": "weather_details" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_background" }
+      ]
+    },
+    "preference_evaluation": {
+      "message": "That depends on your taste. What are you asking about—food, music, a book, or something else?",
+      "choices": [
+        { "text": "Food", "nextNodeId": "food_chat" },
+        { "text": "Music", "nextNodeId": "music_chat" },
+        { "text": "Hobbies", "nextNodeId": "hobbies_chat" }
+      ]
+    },
+    "general_evaluation": {
+      "message": "It depends on what you mean by ‘it’. Tell me a little more, and I will try to give you a useful answer.",
+      "choices": [
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" }
+      ]
+    },
+    "advice_chat": {
+      "message": "When a problem feels large, divide it into smaller steps. Choose one useful step and begin there. What are you trying to decide?",
+      "choices": [
+        { "text": "I feel worried", "nextNodeId": "user_feeling" },
+        { "text": "I am bored", "nextNodeId": "boredom" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "apology_chat": {
+      "message": "That is alright. We all make mistakes. Let us move on and speak of something better.",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "location_details": {
+      "message": "Waterloo is about 15 kilometres south of Brussels. The village is small, but the open fields around it are wide enough for two large armies to meet.",
+      "choices": [
+        { "text": "Which battle is being fought there?", "nextNodeId": "which_battle" },
+        { "text": "Who is coming from the east?", "nextNodeId": "prussian_details" },
+        { "text": "Tell me about the weather", "nextNodeId": "weather_details" }
+      ]
+    },
+    "waterloo_background": {
+      "message": "The Battle of Waterloo is being fought in present-day Belgium. I returned from exile this year, and the European armies have joined forces against France. Here, Wellington's army is in front of us and the Prussians are approaching.",
+      "choices": [
+        { "text": "Tell me about Wellington", "nextNodeId": "wellington_details" },
+        { "text": "Tell me about the Prussians", "nextNodeId": "prussian_details" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" }
+      ]
+    },
+    "wellington_details": {
+      "message": "Arthur Wellesley, the Duke of Wellington, commands the Allied army. His troops are holding a ridge, which makes an attack difficult.",
+      "choices": [
+        { "text": "Who are the Prussians?", "nextNodeId": "prussian_details" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" },
+        { "text": "What happened at Waterloo?", "nextNodeId": "battle_aftermath" }
+      ]
+    },
+    "prussian_details": {
+      "message": "The Prussians are an army from Prussia, led by Marshal Blücher. They are moving in from the east to support Wellington's forces.",
+      "choices": [
+        { "text": "Who is Marshal Blücher?", "nextNodeId": "prussian_commander" },
+        { "text": "Where are they now?", "nextNodeId": "prussian_news" },
+        { "text": "What is your plan?", "nextNodeId": "battle_plan_details" }
+      ]
+    },
+    "battle_plan_details": {
+      "message": "I want the artillery to weaken the Allied line, then the infantry to advance. I must also keep reserves ready in case the Prussians arrive.",
+      "choices": [
+        { "text": "Tell me about the artillery", "nextNodeId": "artillery_effort" },
+        { "text": "Tell me about the Prussians", "nextNodeId": "prussian_details" },
+        { "text": "What is happening at the front?", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "weather_details": {
+      "message": "The rain has left the fields wet and muddy. It may slow the troops and make it harder for the guns to move.",
+      "choices": [
+        { "text": "How does that affect the battle?", "nextNodeId": "allied_line" },
+        { "text": "Tell me about your plan", "nextNodeId": "battle_plan_details" },
+        { "text": "Where is Waterloo?", "nextNodeId": "battle_location" }
+      ]
+    },
+    "origin_details": {
+      "message": "I was born in Ajaccio, on the island of Corsica, in 1769. I later joined the French army as an artillery officer.",
+      "choices": [
+        { "text": "How old are you?", "nextNodeId": "age_details" },
+        { "text": "Tell me about your career", "nextNodeId": "career_details" },
+        { "text": "What is happening at Waterloo?", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "age_details": {
+      "message": "I was born in 1769, so I am 45 years old in 1815. I have spent much of my life in the army.",
+      "choices": [
+        { "text": "Where were you born?", "nextNodeId": "origin_details" },
+        { "text": "Tell me about your career", "nextNodeId": "career_details" },
+        { "text": "How are you?", "nextNodeId": "wellbeing" }
+      ]
+    },
+    "family_details": {
+      "message": "My wife is Marie Louise, and we have a young son, Napoleon Francis. He is not here with me at Waterloo.",
+      "choices": [
+        { "text": "Where were you born?", "nextNodeId": "origin_details" },
+        { "text": "Tell me about your life", "nextNodeId": "identity" },
+        { "text": "What is happening at Waterloo?", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "career_details": {
+      "message": "I began as an artillery officer in the French army. I became a general during the Revolution and later ruled as Emperor of the French.",
+      "choices": [
+        { "text": "Where were you born?", "nextNodeId": "origin_details" },
+        { "text": "Tell me about your family", "nextNodeId": "family_details" },
+        { "text": "Why are you at Waterloo?", "nextNodeId": "reason_for_battle" }
+      ]
+    },
+    "user_feeling": {
+      "message": "I am sorry you are having a hard day. Even the strongest people need rest and support. Would you like to talk about something else for a while?",
+      "choices": [
+        { "text": "Yes, tell me about the weather", "nextNodeId": "weather" },
+        { "text": "Tell me about your life", "nextNodeId": "identity" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "battle_aftermath": {
+      "message": "The battle ended in defeat for my army. I returned to Paris and abdicated again soon afterward. The Allies later sent me into exile on Saint Helena.",
+      "choices": [
+        { "text": "Why did you lose?", "nextNodeId": "battle_outcome" },
+        { "text": "Who were you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "Start a new conversation", "nextNodeId": "greeting" }
+      ]
+    },
+    "affirmative_response": {
+      "message": "Very well. We can talk about the Battle of Waterloo. What would you like to know?",
+      "choices": [
+        { "text": "Which battle is this?", "nextNodeId": "which_battle" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "What is your plan?", "nextNodeId": "war_council" }
+      ]
+    },
+    "negative_response": {
+      "message": "No problem. We can talk about something else. I know about the weather here, or we can discuss my life and the events at Waterloo.",
+      "choices": [
+        { "text": "Tell me about the weather", "nextNodeId": "weather" },
+        { "text": "Who are you?", "nextNodeId": "identity" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "decline_battle_details": {
+      "message": "Of course. I do not know much about that subject. We can talk about the weather or something I know well, such as Waterloo.",
+      "choices": [
+        { "text": "Tell me about the weather", "nextNodeId": "weather" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "unsure_response": {
+      "message": "That is alright. We can take our time. I can tell you about Waterloo, the armies here, or the weather.",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "Tell me about the weather", "nextNodeId": "weather" }
+      ]
+    },
+    "greeting": {
+      "message": "Hello! I am Napoleon Bonaparte. It is good to meet you. What would you like to talk about?",
+      "choices": [
+        { "text": "How are you?", "nextNodeId": "wellbeing" },
+        { "text": "Who are you?", "nextNodeId": "identity" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "wellbeing": {
+      "message": "I am fine, thank you. I am planning for a battle today. Would you like to know which one?",
+      "choices": [
+        { "text": "Yes, which battle?", "nextNodeId": "which_battle" },
+        { "text": "I am doing well", "nextNodeId": "user_wellbeing" },
+        { "text": "What is the weather like?", "nextNodeId": "weather" }
+      ]
+    },
+    "which_battle": {
+      "message": "The Battle of Waterloo. It is taking place today, near the village of Waterloo.",
+      "choices": [
+        { "text": "Where is Waterloo?", "nextNodeId": "battle_location" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "When does the battle begin?", "nextNodeId": "battle_date" }
+      ]
+    },
+    "battle_location": {
+      "message": "Waterloo is south of Brussels, in what is now Belgium. Our armies are meeting in the fields nearby.",
+      "choices": [
+        { "text": "Which battle is this?", "nextNodeId": "which_battle" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "What is the weather like?", "nextNodeId": "weather" }
+      ]
+    },
+    "battle_date": {
+      "message": "It is June 18, 1815. The battle is happening today, near Waterloo.",
+      "choices": [
+        { "text": "Which battle?", "nextNodeId": "which_battle" },
+        { "text": "Where is Waterloo?", "nextNodeId": "battle_location" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" }
+      ]
+    },
+    "battle_opponents": {
+      "message": "I am facing the Allied army led by the Duke of Wellington. The Prussian army, led by Marshal Blücher, is also nearby.",
+      "choices": [
+        { "text": "Who leads the Prussians?", "nextNodeId": "prussian_commander" },
+        { "text": "Why are you fighting?", "nextNodeId": "reason_for_battle" },
+        { "text": "What is your plan?", "nextNodeId": "war_council" }
+      ]
+    },
+    "prussian_commander": {
+      "message": "Marshal Blücher leads the Prussian army. His troops are coming from the east, so we must watch that side closely.",
+      "choices": [
+        { "text": "Who else are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "Where are the Prussians?", "nextNodeId": "prussian_news" },
+        { "text": "What is your plan?", "nextNodeId": "war_council" }
+      ]
+    },
+    "reason_for_battle": {
+      "message": "I returned to France after my exile on Elba. The European powers joined together against me, and now we face each other at Waterloo.",
+      "choices": [
+        { "text": "Which battle is this?", "nextNodeId": "which_battle" },
+        { "text": "Who are you fighting?", "nextNodeId": "battle_opponents" },
+        { "text": "What happened at Waterloo?", "nextNodeId": "battle_outcome" }
+      ]
+    },
+    "battle_outcome": {
+      "message": "My army lost the Battle of Waterloo. Wellington's army held its position, and the Prussians arrived to support the Allies.",
+      "choices": [
+        { "text": "Who were the Prussians?", "nextNodeId": "prussian_news" },
+        { "text": "Where did the battle happen?", "nextNodeId": "battle_location" },
+        { "text": "Start the conversation again", "nextNodeId": "greeting" }
+      ]
+    },
+    "user_wellbeing": {
+      "message": "I am glad to hear it! A cheerful spirit is a fine thing. What would you like to talk about?",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "How are you?", "nextNodeId": "wellbeing" },
+        { "text": "Goodbye", "nextNodeId": "farewell" }
+      ]
+    },
+    "identity": {
+      "message": "I am Napoleon Bonaparte, a French general and emperor. I am now at Waterloo, in the year 1815.",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "How are you?", "nextNodeId": "wellbeing" },
+        { "text": "What can we talk about?", "nextNodeId": "topics_help" }
+      ]
+    },
+    "thanks": {
+      "message": "You are welcome. A good conversation is always a pleasure. What shall we discuss next?",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Tell me about yourself", "nextNodeId": "identity" },
+        { "text": "Goodbye", "nextNodeId": "farewell" }
+      ]
+    },
+    "weather": {
+      "message": "It has rained near Waterloo, and the ground is still wet. That may slow our guns. What would you like to know next?",
+      "choices": [
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" },
+        { "text": "Ask about Wellington", "nextNodeId": "allied_line" },
+        { "text": "Ask about the Prussians", "nextNodeId": "prussian_news" }
+      ]
+    },
+    "farewell": {
+      "message": "Farewell! Until we meet again. May your day go well.",
+      "choices": [
+        { "text": "Start a new conversation", "nextNodeId": "greeting" },
+        { "text": "Return to Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
+    "topics_help": {
+      "message": "We can talk about Waterloo, the weather, your day, feelings, food, music, books, hobbies, travel, sports, films and games, favorite things and colors, jokes, short stories, or advice. You can also ask me for a suggestion.",
+      "choices": [
+        { "text": "Tell me about your day", "nextNodeId": "daily_life" },
+        { "text": "Tell me a joke", "nextNodeId": "joke_chat" },
+        { "text": "Tell me about Waterloo", "nextNodeId": "waterloo_start" }
+      ]
+    },
     "waterloo_start": {
       "message": "It is the morning of June 18, 1815, near Waterloo. The rain has left the ground muddy. Wellington's army is on the ridge, and we do not know where the Prussians are. What should we find out first?",
       "choices": [

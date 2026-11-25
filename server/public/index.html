@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#f6f5f2" />
+    <meta name="theme-color" content="#0b111a" />
     <title>Napoleon Chat</title>
     <link rel="stylesheet" href="/styles.css" />
     <script src="/app.js" defer></script>
@@ -12,7 +12,7 @@
     <main class="page">
       <section class="chat-card" aria-label="Napoleon chatbot">
         <header class="chat-header">
-          <div class="avatar" aria-hidden="true">N</div>
+          <img class="avatar" src="/napoleon-avatar.png" alt="" aria-hidden="true" />
           <div class="heading">
             <h1>Napoleon Bonaparte</h1>
             <p><span class="status-dot"></span> Waterloo, 1815</p>
@@ -32,7 +32,7 @@
             id="message-input"
             name="message"
             type="text"
-            placeholder="Ask about Waterloo…"
+            placeholder="Say hello, or ask about food, music, or your day…"
             autocomplete="off"
             maxlength="500"
             required
@@ -42,7 +42,7 @@
             <span aria-hidden="true">↑</span>
           </button>
         </form>
-        <p class="hint">Try Waterloo, Wellington, the Prussians, or battle plans.</p>
+        <p class="hint">Try daily life, feelings, food, music, hobbies, jokes, or Waterloo.</p>
       </section>
       <p class="page-note">A small historical conversation</p>
     </main>
